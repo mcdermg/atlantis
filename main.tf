@@ -4,3 +4,12 @@ resource "random_password" "password" {
   override_special = "_%@"
 }
 
+provider "google" {
+    project = "dark-axe-359021"
+}
+
+
+resource "google_compute_network" "custom-test" {
+  name                    = "test-network"
+  auto_create_subnetworks = true
+}
