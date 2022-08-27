@@ -17,5 +17,5 @@ provider "google" {
 
 resource "google_compute_network" "custom-test" {
   name                    = "test-network"
-  auto_create_subnetworks = true
+  auto_create_subnetworks = false
 }
