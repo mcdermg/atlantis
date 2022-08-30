@@ -58,8 +58,8 @@ locals {
     }
     # TO DO IAP SSH Linux nodes rule
   }
-  # all_project_services = concat(var.gcp_service_list, [
-  #   "serviceusage.googleapis.com",
-  #   "iam.googleapis.com",
-  # ])
+  all_project_services = concat(var.gcp_service_list, [
+    "serviceusage.googleapis.com",
+    "iam.googleapis.com",
+  ])
 }
