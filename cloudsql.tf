@@ -9,13 +9,18 @@ resource "random_password" "password" {
   override_special = "()-_=+[]{}"
 }
 
+resource "random_string" "suffix" {
+  length           = 5
+  special          = false
+}
+
 module "cloud_sql" {
   source = "./modules/cloudsql-instance"
   count  = var.enablecloudsql ? 1 : 0
 
   project_id           = var.project_id
   network              = module.vpc.self_link
-  name                 = "${var.environment}-${var.cloudsql_name}"
+  name                 = lower("${var.environment}-${var.cloudsql_name}-${random_string.suffix.id}")
   region               = var.region
   database_version     = var.cloudsql_version
   tier                 = var.cloudsql_tier
