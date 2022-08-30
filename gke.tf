@@ -123,36 +123,3 @@ module "nodepool_windows" {
     module.linux_nodepool
   ]
 }
-
-resource "google_container_node_pool" "node_pool" {
-  count  = var.enablewink8 ? 1 : 0
-
-  name     = "windows-node-pool-3"
-  location = "us-central1"
-  cluster  = try(module.cluster[0].name, "")
-  version  = "1.24.2-gke.1900" #"1.24.2-gke.1900"
-
-  initial_node_count = 1
-  autoscaling {
-    min_node_count = 2
-    max_node_count = 4
-  }
-
-  management {
-    auto_repair = true
-  }
-
-  node_config {
-    machine_type = "n1-standard-2"
-    preemptible  = false  #var.preemptible_nodes
-    tags         = []
-    image_type   = "WINDOWS_LTSC_CONTAINERD"
-    metadata     = {
-      "windows-startup-script-url" = "https://storage.googleapis.com/ibrahimab-public/update_containerd_166.ps1"
-      "disable-legacy-endpoints"   = "true"
-    }
-  }
-  depends_on = [
-    module.linux_nodepool
-  ]
-}
