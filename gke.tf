@@ -12,7 +12,7 @@ module "cluster" {
   count  = var.enablek8 ? 1 : 0
 
   project_id                = var.project_id
-  name                      = "Atlantis-cluster"
+  name                      = lower("Atlantis-cluster")
   location                  = var.region
   release_channel           = "UNSPECIFIED"
   min_master_version        = "1.23.5-gke.1503"
