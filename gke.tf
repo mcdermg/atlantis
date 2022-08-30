@@ -15,7 +15,7 @@ module "cluster" {
   name                      = lower("Atlantis-cluster")
   location                  = var.region
   release_channel           = "UNSPECIFIED"
-  min_master_version        = "1.23.5-gke.1503"
+  min_master_version        = "1.22.11-gke.400"
   network                   = module.vpc.name
   subnetwork                = module.vpc.subnets[local.subnet_key].name
   secondary_range_pods      = module.vpc.subnets[local.subnet_key].secondary_ip_range[0]["range_name"]

@@ -110,7 +110,7 @@ variable "gke_linux_node_pool" {
   default = {
     name               = "linux-node-pool"
     machine_type       = "g1-small"
-    gke_version        = "1.23.5-gke.1503"
+    gke_version        = "1.22.11-gke.400"
     initial_node_count = 2
     min_count          = 1
     max_count          = 3
@@ -131,7 +131,7 @@ variable "gke_windows_node_pool" {
   default = {
     name               = "windows-node-pool"
     machine_type       = "n1-standard-2"
-    gke_version        = "1.23.5-gke.1503"
+    gke_version        = "1.22.11-gke.400"
     initial_node_count = 2
     min_count          = 1
     max_count          = 1
