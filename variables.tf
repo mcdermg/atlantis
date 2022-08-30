@@ -19,25 +19,25 @@ variable "region" {
 variable "enablek8" {
   description = "Enable GKE"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enablelinuxk8" {
   description = "Enable GKE Linux node pool"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enablewink8" {
   description = "Enable GKE Windows node pool"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enablecloudsql" {
   description = "Enable the CloudSQL instance or not"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "subnet" {
