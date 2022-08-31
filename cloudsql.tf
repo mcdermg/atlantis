@@ -25,7 +25,7 @@ module "cloud_sql" {
   database_version     = var.cloudsql_version
   tier                 = var.cloudsql_tier
   root_password        = random_password.password.result
-  deletion_protection  = var.cloudsql_delete_protection
+  deletion_protection  = false #var.cloudsql_delete_protection
   backup_configuration = var.cloudsql_backup_configuration
   availability_type    = var.cloudsql_availability_type
 

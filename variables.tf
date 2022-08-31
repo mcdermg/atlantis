@@ -149,7 +149,7 @@ variable "gke_windows_node_pool" {
 variable "gke_version" {
   description = "Version of kubernetes to use for control pane and node pools"
   type        = string
-  default     = "1.23.5-gke.1503"
+  default     = "1.22.11-gke.400"
 }
 
 variable "cloudsql_name" {

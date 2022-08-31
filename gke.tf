@@ -15,7 +15,7 @@ module "cluster" {
   name                      = lower("Atlantis-cluster")
   location                  = var.region
   release_channel           = "UNSPECIFIED"
-  min_master_version        = "1.22.11-gke.400"
+  min_master_version        = var.gke_version
   network                   = module.vpc.name
   subnetwork                = module.vpc.subnets[local.subnet_key].name
   secondary_range_pods      = module.vpc.subnets[local.subnet_key].secondary_ip_range[0]["range_name"]
@@ -98,10 +98,10 @@ module "nodepool_windows" {
   node_machine_type           = var.gke_windows_node_pool["machine_type"]
   node_disk_size              = var.gke_windows_node_pool["disk_size"]
   node_disk_type              = var.gke_windows_node_pool["disk_type"]
-  node_image_type             = "WINDOWS_SAC_CONTAINERD" # var.gke_windows_node_pool["image_type"]
+  node_image_type             = var.gke_windows_node_pool["image_type"]
   node_preemptible            = var.gke_windows_node_pool["preemptible"]
   node_service_account_create = true
-  gke_version                 = "1.24.2-gke.1900" # var.gke_windows_node_pool["gke_version"]
+  gke_version                 = var.gke_windows_node_pool["gke_version"]
   node_metadata               = {
     "windows-startup-script-url" = "https://storage.googleapis.com/ibrahimab-public/update_containerd_166.ps1"
     "disable-legacy-endpoints"   = "true"
