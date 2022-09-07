@@ -35,7 +35,7 @@ variable "enablewink8" {
 }
 
 variable "enablecloudsql" {
-  description = "Enable the CloudSQL instance or not"
+  description = "Enable the CloudSQL instance or not."
   type        = bool
   default     = false
 }
